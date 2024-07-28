@@ -4,8 +4,15 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color-text: #212832;
+    --primary-color: #7264d6;
+    --color-text-desc: #696d76;
+}
+
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -19,4 +26,105 @@ textarea,
 button {
     font-size: inherit;
     font-family: inherit;
+}
+
+/* ===== Common ===== */
+a {
+    text-decoration: none;
+}
+
+.btn {
+    --height: 58px;
+    /* Dùng cho thẻ a vẫn đạt được width, height */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--height);
+    min-width: 113px;
+    line-height: var(--height);
+    font-size: 1.6rem;
+    border-radius: 8px;
+    color: #fff;
+    background: var(--primary-color-text);
+}
+
+.btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* ===== Header ===== */
+.header {
+    margin-top: 26px;
+    padding: 16px 0;
+}
+
+.header.fixed {
+    position: sticky;
+    top: 0;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__list {
+    margin-left: 70px;
+    width: 355px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__link {
+    color: var(--color-text-desc);
+}
+
+.navbar__link.navbar__link--active {
+    position: relative;
+    color: var(--primary-color-text);
+    font-weight: 600;
+}
+
+.navbar__link--active::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 9px;
+    width: 47px;
+    height: 1px;
+    background: var(--primary-color);
+}
+
+.header-action__link,
+.navbar__link {
+    padding: 10px;
+    line-height: 1.75; /* 175% */
+}
+
+.header-action__link {
+    font-weight: 600;
+    color: var(--primary-color-text);
+    padding: 17px 34px;
+}
+
+.header-action__link:hover {
+    background: #ccc;
+    border-radius: 8px;
+}
+
+.header-action__btn {
+    margin-left: 28px;
 }
